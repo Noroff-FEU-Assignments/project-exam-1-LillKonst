@@ -1,0 +1,39 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-img {
+    width: 100%;
+}
+
+.background-box {
+    position: absolute;
+    bottom: 7%;
+    left: 100px;
+    z-index: 999;
+    background-color: #B4656F;
+    border-radius: 50px;
+    margin: 20px;
+    padding: 10px 10px;
+    text-align: center;
+    width: 500px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.welcome-text {
+    font-size: 1em;
+    font-weight: 600;
+    padding-top: 0px;
+}
+
+.relative {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 0px 70px;
+}

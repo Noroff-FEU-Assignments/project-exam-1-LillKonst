@@ -41,6 +41,40 @@ async function displayListOfPosts() {
             postMiniature.addEventListener("click", () => {
                 window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
             });
+
+            const postTitle = document.createElement("h2");
+            postTitle.classList.add("title-min");
+            postTitle.innerHTML = `${post.title.rendered}`;
+            postMiniature.appendChild(postTitle);
+
+            const image = document.createElement("img");
+            image.src = post.jetpack_featured_media_url;
+            image.alt = post.description;
+            image.classList.add("blog__img-min", "carousel__img");
+            postMiniature.appendChild(image);
+
+            listOfPosts.insertAdjacentHTML('beforeend', postMiniature.outerHTML);
+        }
+    } catch (error) {
+        showError(error.message);
+    }
+}
+
+
+ /*
+async function displayListOfPosts() {
+    try {
+        const posts = await getPosts(page, postsPerPage);
+        const listOfPosts = document.querySelector(".list-of-posts");
+
+        for (let i = 0; i < posts.length; i++) {
+            const post = posts[i];
+
+            const postMiniature = document.createElement("article");
+            postMiniature.classList.add("post-miniature", "blog-min");
+            postMiniature.addEventListener("click", () => {
+                window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
+            });
             listOfPosts.appendChild(postMiniature);
 
             const postTitle = document.createElement("h2");
@@ -57,7 +91,7 @@ async function displayListOfPosts() {
     } catch (error) {
         showError(error.message);
     }
-}
+} */
 
 const moreButton = document.getElementById("more-button");
 

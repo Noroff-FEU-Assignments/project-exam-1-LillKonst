@@ -19,17 +19,28 @@ h2, h3, h4, p {
 main {
     display: flex;
     flex-direction: column;
+    padding: 0px 70px; 
 }
 
-.header {
+ 
+header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin: 0px 100px;
-    margin-bottom: 10px;
+    margin: 0px 60px 30px 100px;
+    padding-bottom: 0px;
+    padding: 10px; 
+ }
+
+ .header {
+    display: flex;
+    justify-content: flex-start;
     border-bottom: 2px solid #D9E7F4;
+    margin: -40px 0px 0px 0px;
+
 }
 
-.logo {
+ .logo {
     width: 100px;
     position: absolute; 
     top: 20px;
@@ -45,71 +56,51 @@ main {
     height: fit-content;
 
 }
-
-
+ 
 .menu {
-    margin: 0px; 
-    padding: 20px;
-    background-color: #4E937A;
-    font-size: 2em;
-    height: fit-content;
-}
+    display: flex;
+    align-self: flex-end;
+    font-size: 1.5em; 
+    padding-top: 10px;
+    padding-bottom: 0px;
+    
+ }
 
 .menu a {
     font-family: "Livvic"; 
     font-weight: 500;   
     color: black;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 0px 20px;
 }
 
-.hamburger-icon {
-    font-size: 2.5em; 
-    padding: 20px;
-    color: #000000;
-}
+ .menu a:hover {
+     font-weight: 600;
+     color:#A3CEF1
+ }
 
-#hamburger-menu {
+ #hamburger-menu {
     display: none;
 }
 
-ul {
-    display: none;
-  }
-  
-  #hamburger-menu:checked ~ ul {
-    display: flex;
-    flex-direction: column;
-    z-index: 999;
-    position: absolute;
-    top: 110px;
-    right: 0px; 
-    width: 50%;
-  }
+ .hamburger-icon {
+     display: none;
+ }
+
+ .mobile {
+     display: none;
+ }
+ 
+ .desktop {
+     display: flex;
+     width: 100%; 
+ }
 
 
-  .menu::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 1px;
-    transition: 0.15s ease-in-out;
-  }
-  
-  .open-menu,
-  .close-menu {
-    position: absolute;
-    display: none;
-  }
-
-.mobile {
-    display: flex;
-}
-
-.desktop {
-    display: none;
-}
-
+ .carousel__slide {
+     width: 40%;
+ }
 
 
 
@@ -125,18 +116,9 @@ ul {
     display: flex;
     width: 100%;
     height: auto;
-    padding-bottom: 30px;
+    padding-bottom: 0px;
     margin: -50px 0px 10px 0px; 
     justify-content: center;
-    
-}
-
-.temp-img {
-    width: 300px;
-    height: 250px;
-    object-fit: cover;
-    padding: 30px;
-    margin-top: 30px;
     
 }
 
@@ -162,17 +144,17 @@ ul {
 }
 
 .carousel__slide {
-    width: 800px;   
+    width: 90%;
+    padding: 20px; 
+    align-self: center; 
 }
 
-.carousel__slide:hover {
-    width: 1000px;
-}
 
 .carousel__title {
     font-size: 1.2em;
     font-weight: 800;
     padding: 5px 20px;
+    cursor: pointer;
 }
 
 .carousel__img {
@@ -180,6 +162,7 @@ ul {
     height: 250px;
     object-fit: cover;
     padding: 0px;
+    cursor: pointer;
 }
 
 .carousel__button {
@@ -205,116 +188,164 @@ ul {
     width: 30px; 
 }
 
-.carousel__nav {
-    margin-top: -80px;
-    display: flex;
-    align-items: flex-end;
-    padding: 10px 0; 
+
+.categories-btn, .cta-btn {
+    background-color: #D9E7F4;
+    width: fit-content;
+    border: none;
+    margin: 10px; 
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
+    cursor: pointer;
+    font-size: 1em;
+    align-self: center;
 }
-
-.carousel__indicator {
-    border: 0;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    background: rgba(0,0,0,.3);
-    margin: 0 12px; 
-    cursor: pointer; 
-}
-
-.carousel__indicator.current-slide {
-    background: rgba(0,0,0,.75) 
-}
-
-.blog-min {
-    width: 30%;
-    padding: 20px; 
-}
-
-
-
 
 
 
 footer {
-    background-color: #A3CEF1;
+    background-color: #D9E7F4;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__logo {
+    width: 100px;
+    height: auto;
+    padding-top: 20px; 
 }
 
 .footer-text {
     text-align: center;
-    font-size: 0.8em;
+    font-size: 1em;
+    font-weight: 600;
+    padding-bottom: 20px;
 }
 
 
 
-@media (min-width: 800px) {
+@media (max-width: 800px) {
 
     header {
-       padding: 10px; 
-    }
-
-    .header {
-        margin: 0px 60px 30px 100px;
-        padding-bottom: 0px;
+        margin: 10px;
+        padding: 10px 40px;
+        justify-content: center;
+        align-items: center;
     }
 
     .logo {
-        width: 100px;
+        display: flex;
+        position: static;
+        width: 120px;
+        align-self: center;
     }
-
-    .hamburger-icon {
+    
+    .header {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 70%;
+        border-top: 2px solid #D9E7F4;
+        border-bottom: none;
+    }
+    
+    .text-logo {
+        font-family: "Indie-Flower";
+        color: #000000;
+        font-size: 1.2em;
+        height: fit-content;
+        margin: 10px;
+    
+    }
+    
+    #hamburger-menu {
         display: none;
+    }
+    
+    .hamburger-icon {
+        font-size: 3em; 
+        padding: 0px;
+        color: #000000;
+        position: absolute;
+        top: 50px;
+        right: 70px;
     }
     
     .menu {
-        display: flex;
-        background-color: #FAFCFF;
-        font-size: 1.5em; 
-        padding-top: 10px;
-        padding-bottom: 0px;
-       
-    }
-
-    
-
-    .menu a {
-        text-decoration: none;
-        transition: 0.3s;
-        padding: 0px 20px; 
-    }
-
-    .menu a:hover {
-        font-weight: 600;
-        color:#A3CEF1
-    }
-
-    .mobile {
         display: none;
+      }
+      
+      #hamburger-menu:checked ~ .menu {
+        display: flex;
+        flex-direction: column;
+        z-index: 999;
+        position: absolute;
+        top: 123px;
+        right: 0px; 
+        width: 40%;
+        background-color: #4E937A;
+      }
+
+      .menu a {
+        padding: 30px;
+        font-weight: 500;
+        font-size: 1.5em;
+      }
+    
+    
+      .menu::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 1px;
+        transition: 0.15s ease-in-out;
+      }
+      
+      .open-menu,
+      .close-menu {
+        position: absolute;
+        display: none;
+      }
+    
+    .mobile {
+        display: flex;
     }
     
     .desktop {
-        display: flex;
-        width: 100%; 
-    }
-
-    .main-img-desktop {
-        width: 100%;
-        border-radius: 20px;
-    }
-
-    main {
-        padding: 0px 0px;
+        display: none;
     }
 
 }
 
-@media (min-width: 1700px) {
+
+@media (max-width: 1172px ) {
+    .carousel__slide {
+        width: 30%;
+    }
+}
+
+@media (max-width: 1700px) {
     .about-text {
         width: 1200px;
     }
 
     .main-img-about {
         width: 500px; 
+    }
+
+    .carousel__title {
+        margin: 5px;
+        padding: 5px;  
+    }
+
+    .stories-box {
+        padding-bottom: 0px;
+
     }
 }

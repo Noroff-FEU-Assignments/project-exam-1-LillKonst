@@ -5,17 +5,18 @@ main {
 .main-top {
     display: flex;
     align-self: flex-end;
-    margin-top: -80px;
+    margin-top: -65px;
 }
 
 .blog-head {
     font-family: "Indie-Flower";
-    font-size: 1.8em;
-    padding: 10px;
+    font-size: 2.3em;
+    padding: 0px;
+    margin: 10px 30px;
     align-self: flex-start;
 }
 
-.categories-btn {
+.categories-btn, .cta-btn {
     background-color: #D9E7F4;
     width: fit-content;
     border: none;
@@ -39,15 +40,83 @@ main {
 .blog-min {
     margin: 10px;
     padding: 10px; 
-    width: 28%;
+    width: 45%;
     cursor: pointer; 
 }
 
-.blog-title {
-    font-size: 1em;
+.title-min {
+    font-size: 1.5em;
     background-color: #D9E7F4;
-    width: 100%;
-    padding: 0;
-    margin: 0; 
+    padding: 10px;
+    margin: 0px; 
     align-self: center;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.blog__img-min {
+    width: 100%; 
+    height: 250px;
+    padding: 0;
+    margin: 0;
+}
+
+
+@media (max-width: 1000px) {
+    .blog-head {
+        margin: 10px 40px;
+    }
+
+    .main-top {
+        align-self: flex-start;
+        margin-top: 0px;
+        padding: 10px;
+        margin: 0px 30px;
+    }
+
+    .blog-min {
+        width: 40%;
+    }
+
+    .title-min {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 800px) {
+    .blog-head {
+        font-size: 2em;
+        margin: 10px;
+    }
+
+    .main-top {
+        margin: 0px;
+    }
+
+    .blog-min {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 0px 40px;
+    }
+
+    .main-top {
+        flex-wrap: wrap;
+        margin-top: 0px;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    .blog__img-min {
+        height: 400px;
+    }
+}
+
+@media (max-width: 400px) {
+    main {
+        padding: 0px 20px;
+    }
 }

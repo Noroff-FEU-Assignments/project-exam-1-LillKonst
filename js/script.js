@@ -1,15 +1,14 @@
 const tinyStoriesAPI = "https://rainydays-api.lillkonst.no/wp-json/wp/v2/posts";
-let page = 1;
-const postsPerPage = 9;
+const postsPerPage = 3;
+let currentPage = 1; // Initial page
+const maxPages = 3; // Maximum pages in the carousel
 
 function showLoadingIndicator() {
-    const PostList = document.querySelector(".list-of-posts");
-    PostList.innerHTML = "<li>Loading...</li>";
+    // Function to display loading indicator
 }
 
 function showError(message) {
-    const errorContainer = document.querySelector(".list-of-posts");
-    errorContainer.innerHTML = `<p> Error: ${message}</p>`;
+    // Function to display error message
 }
 
 async function getPosts(page, postsPerPage) {
@@ -28,102 +27,82 @@ async function getPosts(page, postsPerPage) {
     }
 }
 
-async function displayListOfPosts() {
+async function displayCarousel(page) {
     try {
         const posts = await getPosts(page, postsPerPage);
-        const listOfPosts = document.querySelector(".list-of-posts");
+        const carousel = document.querySelector(".carousel__track");
+        carousel.innerHTML = "";
+    
+    for(i = 0; i < posts.length; i++) {
+        const post = posts[i];
 
-        for (let i = 0; i < posts.length; i++) {
-            const post = posts[i];
-
-            const postMiniature = document.createElement("article");
-            postMiniature.classList.add("post-miniature", "blog-min");
-            postMiniature.addEventListener("click", () => {
-                window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
+        const postSlide = document.createElement("article");
+            postSlide.classList.add("carousel__slide");
+            postSlide.addEventListener("click", () => {
+            window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
             });
+            carousel.appendChild(postSlide);
 
             const postTitle = document.createElement("h2");
-            postTitle.classList.add("title-min");
+            postTitle.classList.add("carousel__title");
             postTitle.innerHTML = `${post.title.rendered}`;
-            postMiniature.appendChild(postTitle);
+            postSlide.appendChild(postTitle);
 
             const image = document.createElement("img");
             image.src = post.jetpack_featured_media_url;
             image.alt = post.description;
-            image.classList.add("blog__img-min", "carousel__img");
-            postMiniature.appendChild(image);
+            image.classList.add("carousel__img");
+            postSlide.appendChild(image);
 
-            listOfPosts.insertAdjacentHTML('beforeend', postMiniature.outerHTML);
         }
     } catch (error) {
         showError(error.message);
     }
 }
 
-
- /*
-async function displayListOfPosts() {
-    try {
-        const posts = await getPosts(page, postsPerPage);
-        const listOfPosts = document.querySelector(".list-of-posts");
-
-        for (let i = 0; i < posts.length; i++) {
-            const post = posts[i];
-
-            const postMiniature = document.createElement("article");
-            postMiniature.classList.add("post-miniature", "blog-min");
-            postMiniature.addEventListener("click", () => {
-                window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
-            });
-            listOfPosts.appendChild(postMiniature);
-
-            const postTitle = document.createElement("h2");
-            postTitle.classList.add("title-min");
-            postTitle.innerHTML = `${post.title.rendered}`;
-            postMiniature.appendChild(postTitle);
-
-            const image = document.createElement("img");
-            image.src = post.jetpack_featured_media_url;
-            image.alt = post.description;
-            image.classList.add("blog__img-min", "carousel__img");
-            postMiniature.appendChild(image);
-        }
-    } catch (error) {
-        showError(error.message);
-    }
-} */
-
-const moreButton = document.getElementById("more-button");
-
-moreButton.addEventListener("click", () => {
-    page++;
-    displayListOfPosts();
-});
-
+// Initial display of carousel on page load
 document.addEventListener("DOMContentLoaded", () => {
-    displayListOfPosts();
+    displayCarousel(currentPage);
+});
+
+// Next button event listener
+const nextButton = document.getElementById("next-button"); // Replace 'next-button' with your button's ID
+
+nextButton.addEventListener("click", () => {
+    if (currentPage < maxPages) {
+        currentPage++;
+        displayCarousel(currentPage);
+    }
+});
+
+// Previous button event listener
+const previousButton = document.getElementById("prev-button"); // Replace 'previous-button' with your button's ID
+
+previousButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        displayCarousel(currentPage);
+    }
 });
 
 
 
-/*
-
-const tinyStoriesAPI = "https://rainydays-api.lillkonst.no/wp-json/wp/v2/posts";
+/*const tinyStoriesAPI = "https://rainydays-api.lillkonst.no/wp-json/wp/v2/posts";
+const postsPerPage = 3;
+let currentPage = 1; // Initial page
 
 function showLoadingIndicator() {
-    const PostList = document.querySelector(".list-of-posts");
-    PostList.innerHTML = "<li>Loading...</li>";
+    // Function to display loading indicator
 }
 
-function showError(message){
-    const errorContainer = document.querySelector(".list-of-posts");
-    errorContainer.innerHTML = `<p> Error: ${message}</p>`;
+function showError(message) {
+    // Function to display error message
 }
 
-async function getPosts(page = 1, postsPerPage = 9) {
+async function getPosts(page, postsPerPage) {
     showLoadingIndicator();
     try {
-        const response = await fetch(tinyStoriesAPI);
+        const response = await fetch(`${tinyStoriesAPI}?page=${page}&per_page=${postsPerPage}`);
 
         if (!response.ok) {
             throw new Error("Something went wrong");
@@ -136,60 +115,96 @@ async function getPosts(page = 1, postsPerPage = 9) {
     }
 }
 
-getPosts()
-    .then((results) => {
-        console.log(results);
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-
-    
-
-async function displayListOfPosts() {
+async function displayCarousel(page) {
     try {
-    const posts = await getPosts();
-    const listOfPosts = document.querySelector(".list-of-posts");
-    listOfPosts.innerHTML = "";
+        const posts = await getPosts(page, postsPerPage);
+        const carousel = document.querySelector(".carousel__track");
+        carousel.innerHTML = "";
     
     for(i = 0; i < posts.length; i++) {
         const post = posts[i];
 
-        const postMiniature = document.createElement("article");
-            postMiniature.classList.add("post-miniature", "blog-min");
-            postMiniature.addEventListener("click", () => {
+        const postSlide = document.createElement("article");
+            postSlide.classList.add("carousel__slide");
+            postSlide.addEventListener("click", () => {
             window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
             });
-            listOfPosts.appendChild(postMiniature);
+            carousel.appendChild(postSlide);
 
             const postTitle = document.createElement("h2");
-            postTitle.classList.add("title-min", );
+            postTitle.classList.add("carousel__title");
             postTitle.innerHTML = `${post.title.rendered}`;
-            postMiniature.appendChild(postTitle);
+            postSlide.appendChild(postTitle);
 
             const image = document.createElement("img");
             image.src = post.jetpack_featured_media_url;
             image.alt = post.description;
-            image.classList.add("blog__img-min", "carousel__img");
-            postMiniature.appendChild(image);
+            image.classList.add("carousel__img");
+            postSlide.appendChild(image);
 
-        }   
-} catch (error) {
-    showError(error.message);
+        }
+    } catch (error) {
+        showError(error.message);
+    }
+}
 
-}}
-
+// Initial display of carousel on page load
 document.addEventListener("DOMContentLoaded", () => {
-    displayListOfPosts();
+    displayCarousel(currentPage);
 });
 
-------------------------------------------------------------- */
+// Next button event listener
+const nextButton = document.getElementById("next-button"); // Replace 'next-button' with your button's ID
+
+nextButton.addEventListener("click", () => {
+    currentPage++;
+    displayCarousel(currentPage);
+});
+
+// Previous button event listener
+const previousButton = document.getElementById("prev-button"); // Replace 'previous-button' with your button's ID
+
+previousButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        displayCarousel(currentPage);
+    }
+});
 
 
-/*
+
+/*const tinyStoriesAPI = "https://rainydays-api.lillkonst.no/wp-json/wp/v2/posts";
+const postsPerPage = 9;
+
+function showLoadingIndicator() {
+    const PostList = document.querySelector(".list-of-posts");
+    PostList.innerHTML = "<p>Loading...</p>";
+}
+
+function showError(message) {
+    const errorContainer = document.querySelector(".list-of-posts");
+    errorContainer.innerHTML = `<p> Error: ${message}</p>`;
+}
+
+async function getPosts(postsPerPage) {
+    showLoadingIndicator();
+    try {
+        const response = await fetch(`${tinyStoriesAPI}?per_page=${postsPerPage}`);
+
+        if (!response.ok) {
+            throw new Error("Something went wrong");
+        }
+
+        const results = await response.json();
+        return results;
+    } catch (error) {
+        throw error;
+    }
+}
+
 async function displayCarousel() {
     try {
-    const posts = await getPosts();
+    const posts = await getPosts(postsPerPage);
     const carousel = document.querySelector(".carousel__track");
     carousel.innerHTML = "";
     
@@ -224,9 +239,4 @@ document.addEventListener("DOMContentLoaded", () => {
     displayCarousel();
 });
 
-
-
 */
-
-
-

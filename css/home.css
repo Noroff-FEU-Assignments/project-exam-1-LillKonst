@@ -1,22 +1,22 @@
 main {
     display: flex;
     flex-direction: column;
+    padding: 0; 
 }
 
 .main-img {
     width: 100%;
+    border-radius: 20px;
 }
 
 .background-box {
     position: absolute;
-    bottom: 7%;
-    left: 100px;
-    z-index: 999;
     background-color: #B4656F;
-    border-radius: 50px;
-    margin: 20px;
+    bottom: 50px; 
+    left: 120px; 
+    border-radius: 20px;
+    margin-top: 20px;
     padding: 10px 10px;
-    text-align: center;
     width: 500px;
 }
 
@@ -34,6 +34,96 @@ h2 {
 
 .relative {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding: 0px 70px;
+}
+
+
+.carousel__track {
+    display: flex;
+    height: 100%;
+    transition: transform 250ms ease-in; 
+    margin: 50px 20px 20px 20px;
+    padding: 10px; 
+    width: 90%;
+    overflow: hidden;
+}
+
+.carousel__slide {
+    width: 90%;
+    padding: 20px; 
+    align-self: center; 
+}
+
+
+.carousel__title {
+    font-size: 1.2em;
+    font-weight: 800;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.carousel__img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.carousel__button {
+    z-index: 999;
+    transform: translateY(-50%);
+    background: transparent; 
+    border: 0; 
+    cursor: pointer;
+}
+
+.carousel__button--left {
+    align-self: center;
+    z-index: 999;
+}
+
+.carousel__button--right {
+    align-self: center;
+    justify-content: flex-end;
+    z-index: 999;
+}
+
+.carousel__button img {
+    width: 40px; 
+    height: 80px;
+}
+
+
+@media (max-width: 1200px) {
+    .background-box {
+        bottom: 30px; 
+        width: 420px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .background-box {
+        width: 300px;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .relative {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0px;
+        padding: 0px 70px;
+    }
+
+    .background-box {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
 }

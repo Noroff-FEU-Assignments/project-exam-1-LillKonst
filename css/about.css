@@ -71,3 +71,27 @@ h4 {
     padding: 10px;
     margin: 20px;
 }
+
+@media (max-width: 1200px) {
+    .about-text {
+        width: 40%;
+    }
+
+    .main-img-about {
+        max-width: 60%;
+    }
+
+    .stories-box {
+
+    }
+
+    .carousel__track {
+    }
+    .carousel__slide {
+        width: 25%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .
+}

@@ -1,7 +1,6 @@
 .blog-post__container {
     display: flex;
     flex-direction: column;
-    padding: 0px 70px; 
 }
 
 .post__title {
@@ -64,7 +63,6 @@
 
 /* ------- MODAL ------- */
 
-/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -84,7 +82,6 @@
     max-height: 80%;
   }
   
-  /* Close button */
   .close {
     color: #fff;
     position: absolute;
@@ -100,10 +97,6 @@
 
 @media (max-width: 900px){
 
-    .blog-post__container {
-        padding: 0px 50px; 
-    }
-
     .post__date {
         align-self: flex-start;
         margin: 0;
@@ -117,11 +110,7 @@
 }
 
 @media (max-width: 550px) {
-    .blog-post__container {
-        padding: 0px 30px; 
-    }
-
-
+ 
     .post__images {
         height: 100px;
         padding: 5px;

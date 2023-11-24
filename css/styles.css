@@ -177,12 +177,14 @@ header {
 .carousel__button--left {
     align-self: center;
     z-index: 999;
+    width: fit-content;
 }
 
 .carousel__button--right {
     align-self: center;
     justify-content: flex-end;
     z-index: 999;
+    width: fit-content;
 }
 
 .carousel__button img {

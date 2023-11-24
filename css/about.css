@@ -80,18 +80,36 @@ h4 {
     .main-img-about {
         max-width: 60%;
     }
-
-    .stories-box {
-
-    }
-
-    .carousel__track {
-    }
-    .carousel__slide {
-        width: 25%;
-    }
 }
 
 @media (max-width: 1000px) {
-    .
+    .about-box {
+        flex-direction: column-reverse;
+    }
+
+    .main-img-about {
+        max-width: 100%;
+        align-self: center;
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    .about-text {
+        width: 100%;
+        border-radius: 0px 0px 20px 20px; 
+        padding: 0;
+        padding-bottom: 30px;  
+    }
+
+    .carousel__track {
+        flex-direction: column;
+    }
+
+    .carousel__slide {
+        width: 100%; 
+        height: 420px; 
+    }
+
+    .carousel__img {
+        height: 400px; 
+    }
 }

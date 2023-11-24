@@ -59,3 +59,19 @@ input {
     border-radius: 50px;
 }
 
+@media (max-width: 1200px)  {
+    input {
+        width: 100%; 
+    }
+}
+
+@media (max-width: 800px) {
+    .contact-section {
+        flex-direction: column;
+    }
+    .contact__img {
+        width: 100%; 
+    }
+
+    
+}

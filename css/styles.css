@@ -353,3 +353,9 @@ footer {
     }
 
 }
+
+@media (max-width: 500px) {
+    main {
+        padding: 0px 40px; 
+    }
+}

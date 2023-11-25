@@ -346,12 +346,26 @@ footer {
         display: none;
     }
 
+    .stories-box {
+        flex-direction: column;
+        padding-top: 40px;
+    }
+
     .carousel__track {
         flex-direction: column;
+        margin-top: 10px;
     }
 
     .carousel__slide {
         width: 100%; 
+    }
+
+    .carousel__button--left {
+        transform: rotate(90deg);
+    }
+
+    .carousel__button--right {
+        transform: rotate(90deg);
     }
 
 }

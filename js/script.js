@@ -55,6 +55,7 @@ async function displayCarousel(page) {
             postSlide.appendChild(image);
 
         }
+        updateButtonVisibility();
     } catch (error) {
         showError(error.message);
     }
@@ -72,6 +73,7 @@ nextButton.addEventListener("click", () => {
     if (currentPage < maxPages) {
         currentPage++;
         displayCarousel(currentPage);
+        updateButtonVisibility();
     }
 });
 
@@ -82,7 +84,32 @@ previousButton.addEventListener("click", () => {
     if (currentPage > 1) {
         currentPage--;
         displayCarousel(currentPage);
+        updateButtonVisibility();
     }
+});
+
+function updateButtonVisibility() {
+    const nextButton = document.getElementById("next-button");
+    const prevButton = document.getElementById("prev-button");
+
+    // Hide prev button on page 1
+    if (currentPage === 1) {
+        prevButton.style.display = "none";
+    } else {
+        prevButton.style.display = "block";
+    }
+
+    // Hide next button on page maxPages
+    if (currentPage === maxPages) {
+        nextButton.style.display = "none";
+    } else {
+        nextButton.style.display = "block";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    displayCarousel(currentPage);
+    updateButtonVisibility(); // Update button visibility initially
 });
 
 

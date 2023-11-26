@@ -1,6 +1,6 @@
 html body {
     margin: 0px; 
-    background-color: #FAFCFF;
+    background-color: #FCF7F8;
 }
 
 @font-face {
@@ -14,6 +14,7 @@ html body {
 
 h2, h3, h4, p {
     font-family: "Livvic";
+    color: #291F1E;
 }
 
 main {
@@ -35,7 +36,7 @@ header {
  .header {
     display: flex;
     justify-content: flex-start;
-    border-bottom: 2px solid rgba(246, 174, 45, 0.2);
+    border-bottom: 2px solid rgba(191, 209, 229, 0.3);
     margin: -40px 0px 0px 0px;
 
 }
@@ -50,7 +51,6 @@ header {
 
 .text-logo {
     font-family: "Indie-Flower";
-    color: #000000;
     font-size: 1em;
     margin: 20px 0px 0px 70px; 
     height: fit-content;
@@ -70,7 +70,7 @@ header {
 .menu a {
     font-family: "Livvic"; 
     font-weight: 500;   
-    color: black;
+    color: #291F1E;
     text-decoration: none;
     transition: 0.3s;
     padding: 0px 20px;
@@ -78,7 +78,7 @@ header {
 
  .menu a:hover {
      font-weight: 600;
-     color:#A3CEF1
+     color: #BFD1E5;
  }
 
  label .hamburger-icon {
@@ -108,7 +108,7 @@ header {
 }
 
 .stories-box {
-    background-color: #D9E7F4;
+    background-color: #BFD1E5;
     display: flex;
     width: 100%;
     height: auto;
@@ -121,7 +121,7 @@ header {
 .heading-circle {
     font-family: "Indie-Flower";
     font-size: 1.8em;
-    background-color: #D9E7F4;
+    background-color: #BFD1E5;
     border-radius: 500px;
     margin: 0;
     padding: 20px;
@@ -188,7 +188,7 @@ header {
     width: 30px; 
 }
 
-
+/*
 .categories-btn, .cta-btn {
     background-color: #D9E7F4;
     width: fit-content;
@@ -200,12 +200,12 @@ header {
     cursor: pointer;
     font-size: 1em;
     align-self: center;
-}
+}*/
 
 
 
 footer {
-    background-color: #D9E7F4;
+    border-top: 2px solid rgba(191, 209, 229, 0.3);
     margin-top: 20px;
     display: flex;
     flex-direction: column;

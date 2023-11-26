@@ -10,7 +10,7 @@
     flex-direction: column;
     text-align: center;
     padding: 30px 10px; 
-    background-color: #4E937A;
+    background-color: rgba(217, 202, 179, 0.5);
     width: 60%;
     border-radius: 20px 0px 0px 20px;
 }

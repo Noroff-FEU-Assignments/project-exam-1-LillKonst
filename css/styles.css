@@ -394,6 +394,15 @@ footer {
     .carousel__track {
         margin: 0px;
     }
+
+    .carousel__slide {
+        padding: 10px;
+    }
+
+    .carousel__img {
+        height: 150px; 
+    }
+
 }
 
 @media (max-width: 400px) {

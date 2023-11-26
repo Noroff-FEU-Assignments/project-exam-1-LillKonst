@@ -133,40 +133,6 @@ legend:after {
 }
 
 
-
-
-
-
-/*
-label {
-    padding: 2px 5px;
-}
-
-input {
-    margin-bottom: 10px; 
-    width: 600px;
-}
-
-.message-box {
-    height: 200px;
-    vertical-align: top;
-}
-
-.cta-btn {
-    width: 200px;
-    margin-left: 5px;
-}
-
-.contact__img {
-    width: 40%; 
-    height: auto;
-    object-fit: cover;
-    padding: 20px; 
-    border-radius: 50px;
-}
-
-
-*/
 .error-message {
     color: red;
     font-size: 14px;

@@ -296,7 +296,7 @@ footer {
         display: none;
     }
 
-    label {
+    label .hamburger-icon {
         display: block;
      }
     

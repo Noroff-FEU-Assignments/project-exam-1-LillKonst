@@ -240,5 +240,9 @@ input {
     .header-text {
         height: 300px;
     }
+
+    .form-box {
+        padding: 10px 15px;
+    }
     
 }

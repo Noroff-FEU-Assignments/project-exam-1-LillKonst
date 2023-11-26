@@ -12,7 +12,6 @@
     background-color: #D9CAB3;
     border-radius: 20px 20px 0px 0px;
     margin-top: 20px; 
-    z-index: 999;
 }
 
 .post__date {
@@ -107,7 +106,7 @@
 
     .post__content {
         margin-top: -40px; 
-        padding-top: 30px;
+        padding-top: 40px;
     }
 
     .post__date {
@@ -129,8 +128,8 @@
     }
 
     .post__content {
-        margin-top: -50px; 
-        padding-top: 50px;
+        margin-top: -60px; 
+        padding-top: 80px;
     }
     
     

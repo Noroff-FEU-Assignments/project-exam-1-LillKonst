@@ -145,7 +145,7 @@ fieldset {
 
 
 .error-message {
-    color: red;
+    color: #CC444B;
     font-size: 14px;
     margin-top: 5px;
     display: none;

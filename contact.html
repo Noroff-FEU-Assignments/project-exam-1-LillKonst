@@ -35,6 +35,7 @@
         a.appendChild(r);
       })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
     </script>
+    <script src="/js/contact.js" defer></script>
   </head>
   <body>
     <header>
@@ -59,45 +60,54 @@
       </div>
     </header>
     <main>
-      <div class="header-text">
-        <h2>Let's connect</h2>
-        <p>
-          We'd love to hear from you. Send us a message with thoughts or
-          question and we'll get back to you as soon as we can.
-        </p>
+      <div class="contact-container">
+        <div class="contact-box">
+          <div class="contact-img header-text">
+            <h2>Let's connect</h2>
+            <p>
+              We'd love to hear from you. Send us a message with thoughts or
+              question and we'll get back to you as soon as we can.
+            </p>
+          </div>
+          <form class="form-box">
+            <fieldset>
+              <legend>CONTACT US</legend>
+              <label for="name">Name:</label>
+              <input type="text" name="name" id="name" class="form__input" />
+              <div id="nameError" class="error-message"></div>
+
+              <label for="email">Email address:</label>
+              <input type="email" name="email" id="email" class="form__input" />
+              <div id="emailError" class="error-message"></div>
+
+              <label for="subject">Subject:</label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                class="form__input"
+              />
+              <div id="subjectError" class="error-message"></div>
+
+              <label for="message">Your question or feedback:</label>
+              <input
+                class="message-box form__input"
+                type="text"
+                name="message"
+                id="message"
+              />
+              <div id="messageError" class="error-message"></div>
+            </fieldset>
+            <button id="submit" class="btn">SEND</button>
+          </form>
+        </div>
       </div>
-      <div class="contact-section">
-        <form>
-          <fieldset class="form-box">
-            <legend></legend>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" class="form__input" />
-            <label for="email">Email address:</label>
-            <input type="email" name="email" id="email" class="form__input" />
-            <label for="subject">Subject:</label>
-            <input
-              type="subject"
-              name="subject"
-              id="subject"
-              class="form__input"
-            />
 
-            <label for="message">Your question or feedback:</label>
-            <input
-              class="message-box form__input"
-              type="text"
-              name="message"
-              id="message"
-            />
-
-            <button class="cta-btn">SUBMIT</button>
-          </fieldset>
-        </form>
-        <img
-          src="/images/bethany-randall-AJ34jnrB52A-unsplash-cut.jpg"
-          alt="Minibus driving through the dessert."
-          class="contact__img"
-        />
+      <div class="modal" id="successModal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Form submitted successfully!</p>
+        </div>
       </div>
     </main>
     <footer>

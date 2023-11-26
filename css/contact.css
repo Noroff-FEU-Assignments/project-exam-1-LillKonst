@@ -1,10 +1,15 @@
+* {
+    box-sizing: border-box;
+    font-family: "Livvic";
+}
 main {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    height: 100%; 
 }
 
 .header-text {
-    margin: 0px 10px;
+    margin: 0px;
+    color: #fff;
 }
 
 .header-text h2 {
@@ -17,21 +22,122 @@ main {
     font-weight: 500;
 }
 
-.contact-section {
+.contact-container {
+    position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px 80px; 
+}
+
+.contact-container:after {
+    content:"";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: url("/images/bethany-randall-AJ34jnrB52A-unsplash-contact.jpg") no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    filter: blur(50px);
+}
+
+.contact-box {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+
+}
+
+.contact-img {
+    height: 100%;
+    background: url("/images/bethany-randall-AJ34jnrB52A-unsplash-contact.jpg") no-repeat center;
+    background-size: cover;
+    text-align: center;
 }
 
 .form-box {
-    border: none;
-    font-family: "Livvic";
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin: 0px 0px;
+    padding: 25px 40px;
 }
 
+
+legend {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+form label { 
+    padding:5px;}
+
+legend:after {
+    content:"";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 60px;
+    border-radius: 2px;
+    background-color: #F6AE2D;
+}
+
+.form__input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: rgba(230, 230, 230, 0.6);
+    font-size: 1.1rem;
+    margin-bottom: 22px; 
+    transition: .3s;
+
+}
+
+.form__input:hover{
+    background-color: rbga(0,0,0,0.1);
+}
+
+.form__input:focus {
+    background-color: #fff;
+    border: 2px solid rgba(246, 174, 45, 0.5);
+}
+
+.message-box {
+    min-height: 150px;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    background-color: #007F76;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    transition: .3s;
+    margin: 5px 0px;
+}
+
+.btn:hover {
+    background-color: #007F76;
+}
+
+
+
+
+
+
+/*
 label {
     padding: 2px 5px;
 }
@@ -43,6 +149,7 @@ input {
 
 .message-box {
     height: 200px;
+    vertical-align: top;
 }
 
 .cta-btn {
@@ -58,19 +165,80 @@ input {
     border-radius: 50px;
 }
 
-@media (max-width: 1200px)  {
-    input {
-        width: 100%; 
+
+*/
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+  }
+
+  
+
+
+
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Black background with transparency */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #D9E7F4;
+    margin: 15% auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    position: relative;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.close {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .contact-container {
+        padding: 10px; 
     }
 }
 
-@media (max-width: 800px) {
-    .contact-section {
-        flex-direction: column;
-    }
-    .contact__img {
-        width: 100%; 
+@media (max-width: 900px) {
+    .contact-box {
+        grid-template-columns: 1fr;
     }
 
+    .header-text {
+        height: 450px;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .header-text {
+        height: 300px;
+    }
     
 }

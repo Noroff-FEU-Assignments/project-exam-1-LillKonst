@@ -113,3 +113,9 @@ h4 {
         height: 400px; 
     }
 }
+
+@media (max-width: 600px) {
+    .about-text {
+        font-size: 0.8em;
+    }
+}

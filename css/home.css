@@ -66,13 +66,13 @@ h2 {
         position: static;
         margin-top: 20px;
         text-align: center;
-        width: 100%;
+        width: fit-content;
     }
 
 }
 
 @media (max-width: 600px) {
     .relative {
-        padding: 0px 40px;
+        padding: 0px 20px;
     }
 }

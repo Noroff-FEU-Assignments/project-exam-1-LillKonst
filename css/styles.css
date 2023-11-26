@@ -396,11 +396,11 @@ footer {
     }
 
     .carousel__slide {
-        padding: 10px;
+        padding: 5px;
     }
 
     .carousel__img {
-        height: 150px; 
+        height: 120px; 
     }
 
 }

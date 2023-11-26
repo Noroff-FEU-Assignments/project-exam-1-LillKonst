@@ -70,6 +70,10 @@ h2 {
         width: fit-content;
     }
 
+    .main-img {
+        margin-top: 0;
+    }
+
 }
 
 @media (max-width: 600px) {

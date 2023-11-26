@@ -71,6 +71,8 @@ main {
 
 .form-box {
     padding: 25px 40px;
+    background-color: #FCF7F8;
+    border-radius: 0px 20px 20px 0px;
 }
 
 
@@ -93,7 +95,7 @@ legend:after {
     height: 3px;
     width: 60px;
     border-radius: 2px;
-    background-color: #EFCB68;
+    background-color: #BFD1E5;
 }
 
 fieldset {
@@ -118,7 +120,7 @@ fieldset {
 
 .form__input:focus {
     background-color: #fff;
-    border: 2px solid rgba(64, 121, 140, 0.5);
+    border: 2px solid rgba(191, 209, 229, 0.5);
 }
 
 .message-box {
@@ -129,18 +131,18 @@ fieldset {
     width: 100%;
     padding: 0.5rem 1rem;
     font-size: 1.1rem;
-    background-color: #40798C;
+    background-color: #BFD1E5;
     cursor: pointer;
     outline: none;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: #291F1E;
     transition: .3s;
     margin: 5px 0px;
 }
 
 .btn:hover {
-    background-color: #007F76;
+    background-color: #BFD1E5;
 }
 
 

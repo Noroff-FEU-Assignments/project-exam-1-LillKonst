@@ -79,7 +79,7 @@ async function fetchPostDetails() {
     blogPostContainer.appendChild(postTitle);
 
     const postDate = document.createElement("p");
-    postDate.textContent = postDetail.date;
+    postDate.innerHTML = postDetail.date;
     postDate.classList.add("post__date");
     blogPostContainer.appendChild(postDate);
 
@@ -102,6 +102,7 @@ async function fetchPostDetails() {
 
     const firstImage = postContent.querySelector("img");
     if (firstImage) {
+      firstImage.removeAttribute("style");
       firstImage.classList.add("first-image");
     }
 
@@ -111,9 +112,11 @@ async function fetchPostDetails() {
 
     groupImages.slice(1).forEach((image) => {
       const clonedImage = image.cloneNode(true);
+      clonedImage.removeAttribute("style");
       clonedImage.classList.add("post__images");
       imageContainer.appendChild(clonedImage);
       image.style.display = "none";
+
     });
 
     const lastParagraph = paragraphs[paragraphs.length - 1];

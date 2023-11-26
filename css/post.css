@@ -90,8 +90,6 @@
     font-size: 30px;
     cursor: pointer;
   }
-  
-
 
 
 
@@ -111,9 +109,25 @@
 
 @media (max-width: 550px) {
  
+    .post__title, .post__date, .post__paragraphs {
+        padding: 3px 20px;
+    }
+    
+    
+    .post__title {
+        font-size: 1.5em;
+        padding: 5px 20px;
+    }
+
+    .post__date {
+        font-size: 0.8em;
+        padding-bottom: 5px;
+    }
+
     .post__images {
         height: 100px;
         padding: 5px;
     }
+
 }
 

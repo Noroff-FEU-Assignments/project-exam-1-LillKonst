@@ -89,6 +89,10 @@ legend:after {
     background-color: #F6AE2D;
 }
 
+fieldset {
+    border: none;
+}
+
 .form__input {
     width: 100%;
     padding: 0.5rem 1rem;
@@ -102,7 +106,7 @@ legend:after {
 }
 
 .form__input:hover{
-    background-color: rbga(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.1);
 }
 
 .form__input:focus {

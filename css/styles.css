@@ -299,7 +299,33 @@ footer {
     
     .menu {
         display: none;
+        position: absolute;
+        top: 0px; /* Initially position below the toggle */
+        right: 0;
+        width: 79%;
+        height: 600px;
+        background-color: #BFD1E5;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition: top 0.5s ease-in-out; /* Transition for dropdown effect */
       }
+
+      
+      
+      .menu.active {
+        display: flex;
+        flex-direction: column;
+        z-index: 999;
+        top: 109px; /* Adjust as needed to position it properly */
+      }
+      
+      .menu a {
+        padding: 50px;
+        font-weight: 500;
+        font-size: 1.5em;
+      }
+
+      /*
       
       #hamburger-menu:checked ~ .menu {
         display: flex;
@@ -312,6 +338,7 @@ footer {
         height: 600px;
         background-color: #BFD1E5;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: ease-in-out 0.3s;
       }
 
       .menu a {
@@ -336,6 +363,8 @@ footer {
         position: absolute;
         display: none;
       }
+
+      */
     
     .mobile {
         display: flex;
@@ -435,6 +464,20 @@ footer {
 
     .menu a {
         font-size: 0.8em;
+    }
+}
+
+@media (max-width: 270px) {
+    .logo {
+        width: 70px; 
+    }
+    .text-logo {
+        font-size: 0.5em;
+    }
+
+    .hamburger-icon {
+        font-size: 1em;
+        right: 20px;
     }
 }
 

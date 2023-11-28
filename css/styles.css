@@ -114,8 +114,7 @@ header {
     height: auto;
     padding-bottom: 0px;
     margin: -50px 0px 10px 0px; 
-    justify-content: center;
-    
+    justify-content: center;    
 }
 
 .heading-circle {
@@ -127,6 +126,11 @@ header {
     padding: 20px;
     width: fit-content;
     z-index: 998;
+}
+
+.blue-box {
+    background-color: #BFD1E5;
+    border-radius: 20px;
 }
 
 .carousel__track {
@@ -323,6 +327,7 @@ footer {
         padding: 50px;
         font-weight: 500;
         font-size: 1.5em;
+        
       }
 
       /*

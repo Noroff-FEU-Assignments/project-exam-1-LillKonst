@@ -113,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
 /*const tinyStoriesAPI = "https://rainydays-api.lillkonst.no/wp-json/wp/v2/posts";
 const postsPerPage = 3;
 let currentPage = 1; // Initial page

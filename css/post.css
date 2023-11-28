@@ -136,7 +136,7 @@
     .post__title {
         font-size: 1.5em;
         padding: 5px 20px;
-        z-index: 999;
+        z-index: 998;
     }
 
     .post__date {

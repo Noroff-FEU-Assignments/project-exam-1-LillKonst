@@ -211,6 +211,11 @@ fieldset {
 
     .header-text {
         height: 450px;
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    .form-box {
+        border-radius: 0px 0px 20px 20px;
     }
     
 }

@@ -27,6 +27,22 @@ async function getPosts(page, postsPerPage) {
     }
 }
 
+async function getAltTextForFeaturedImage(imageId) {
+    try {
+        const response = await fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/media/${imageId}`);
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch image details");
+        }
+
+        const imageData = await response.json();
+        return imageData.alt_text;
+    } catch (error) {
+        console.error("Error fetching image details:", error);
+        return null;
+    }
+}
+
 async function displayCarousel(page) {
     try {
         const posts = await getPosts(page, postsPerPage);
@@ -50,9 +66,19 @@ async function displayCarousel(page) {
 
             const image = document.createElement("img");
             image.src = post.jetpack_featured_media_url;
-            image.alt = post.description;
             image.classList.add("carousel__img");
             postSlide.appendChild(image);
+
+              // Fetch and set alt text for the image
+              const altText = await getAltTextForFeaturedImage(post.featured_media);
+              image.alt = altText || "No alt text available"; // Set default alt text if none found
+  
+              // Set image source
+              if (post.jetpack_featured_media_url) {
+                  image.src = post.jetpack_featured_media_url;
+              } else {
+                  image.src = "placeholder.jpg"; // Replace with your placeholder image
+              }
 
         }
         updateButtonVisibility();

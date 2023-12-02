@@ -57,6 +57,11 @@ async function displayListOfPosts(posts) {
             });
             listOfPosts.appendChild(postMiniature);
     
+            const readBtn = document.createElement("button");
+            readBtn.textContent = "READ";
+            readBtn.classList.add("read-btn");
+            postMiniature.appendChild(readBtn); 
+            
             const postTitle = document.createElement("h2");
             postTitle.classList.add("title-min");
             postTitle.innerHTML = `${post.title.rendered}`;
@@ -68,16 +73,16 @@ async function displayListOfPosts(posts) {
             image.classList.add("blog__img-min", "carousel__img");
             postMiniature.appendChild(image);
 
-             // Fetch and set alt text for the image
              const altText = await getAltTextForFeaturedImage(post.featured_media);
-             image.alt = altText || "No alt text available"; // Set default alt text if none found
+             image.alt = altText || "No alt text available";
  
-             // Set image source
              if (post.jetpack_featured_media_url) {
                  image.src = post.jetpack_featured_media_url;
              } else {
                  image.src = "placeholder.jpg"; // Replace with your placeholder image
              }
+
+            
         }
         } catch (error) {
         showError(error.message);
@@ -86,8 +91,8 @@ async function displayListOfPosts(posts) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const initialPosts = await getPosts(currentPage); // Fetch initial content
-        displayListOfPosts(initialPosts); // Display the initial content
+        const initialPosts = await getPosts(currentPage);
+        displayListOfPosts(initialPosts);
     } catch (error) {
         console.error(error);
     }
@@ -97,9 +102,9 @@ const loadMoreButton = document.getElementById('more-button');
 
 loadMoreButton.addEventListener('click', async () => {
     try {
-        currentPage++; // Increment page number for the next set of posts
-        const moreData = await getPosts(currentPage); // Fetch more content
-        displayListOfPosts(moreData); // Append the fetched content to the existing list
+        currentPage++; 
+        const moreData = await getPosts(currentPage);
+        displayListOfPosts(moreData);
     } catch (error) {
         console.error(error);
     }

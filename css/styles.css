@@ -20,7 +20,7 @@ h2, h3, h4, p {
 main {
     display: flex;
     flex-direction: column;
-    padding: 0px 70px; 
+    padding: 0px 50px; 
 }
 
  
@@ -42,7 +42,7 @@ header {
 }
 
  .logo {
-    width: 100px;
+    width: 80px;
     position: absolute; 
     top: 20px;
     left: 50px;
@@ -74,6 +74,7 @@ header {
     text-decoration: none;
     transition: 0.3s;
     padding: 0px 20px;
+    margin-top: 20px;
 }
 
  .menu a:hover {
@@ -102,60 +103,81 @@ header {
 .box {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 30px 0px;
+    margin: 50px 0px;
 }
 
 .stories-box {
-    background-color: #D9CAB3;
     display: flex;
+    flex-wrap: wrap;
+    width: 100%; 
+    align-self: center;
+    justify-content: center;
+}
+
+.carousel__background {
+    background-color: rgba(217, 202, 179);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding-top: 20px; 
     width: 100%;
     height: auto;
     padding-bottom: 0px;
-    margin: -50px 0px 10px 0px; 
-    justify-content: center;    
+    justify-content: center;
 }
 
 .heading-circle {
     font-family: "Indie-Flower";
-    font-size: 1.8em;
-    background-color: #D9CAB3;
-    border-radius: 500px;
-    margin: 0;
-    padding: 20px;
-    width: fit-content;
+    font-size: 2em;
     z-index: 998;
+    align-self: flex-start;
+    padding: 0px 30px;
+    margin: 0;
 }
 
-.blue-box {
-    background-color: #BFD1E5;
-    border-radius: 20px;
+.carousel__heading {
+    background-color: #D9CAB3;
+    align-self: center;
+    border-radius: 50px;
+    margin-bottom: -30px;
+    padding: 10px;
+
 }
 
 .carousel__track {
+    grid-column: 1 / 3;
     display: flex;
     align-items: flex-end;
     height: 100%;
     transition: transform 250ms ease-in; 
-    margin: 30px 20px 20px 20px;
+    margin: 0px;
     padding: 10px; 
-    width: 90%;
+    width: 100%;
     overflow: hidden;
     align-self: center;
 }
 
 .carousel__slide {
-    width: 90%;
-    padding: 20px; 
+    width: 100%;
+    margin: 10px; 
     align-self: center; 
+    position: relative;
 }
 
 
-.carousel__title {
-    font-size: 1.2em;
-    font-weight: 800;
-    padding: 5px 20px;
-    cursor: pointer;
+
+
+.title-min {
+    font-size: 1.5em;
+    background-color: rgba(217, 202, 179);
+    padding: 10px;
+    margin: 0px; 
+    align-self: center;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.carousel__title{
+
+    background-color: rgba(250, 250, 250, 0.5);
 }
 
 .carousel__img {
@@ -175,12 +197,14 @@ header {
 }
 
 .carousel__button--left {
+    grid-column: 1;
     align-self: center;
     z-index: 999;
     width: fit-content;
 }
 
 .carousel__button--right {
+    grid-column: 3;
     align-self: center;
     justify-content: flex-end;
     z-index: 999;
@@ -189,6 +213,29 @@ header {
 
 .carousel__button img {
     width: 30px; 
+}
+
+.read-btn {
+    position: absolute;
+    bottom: 30px; 
+    left: 30px;
+    z-index: 999;
+    background-color: #D9CAB3;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.blog-min {
+    margin: 10px;
+    padding: 10px; 
+    width: 45%;
+    cursor: pointer; 
+    position: relative;
 }
 
 
@@ -227,13 +274,18 @@ footer {
 @media (max-width: 1700px) {
 
     .carousel__title {
-        margin: 5px;
         padding: 5px;  
     }
 
     .stories-box {
         padding-bottom: 0px;
 
+    }
+}
+
+@media (max-width: 1116px) {
+    .title-min {
+        height: 60px 
     }
 }
 
@@ -390,6 +442,10 @@ footer {
 
     .carousel__slide {
         width: 90%; 
+    }
+
+    .title-min {
+        height: fit-content;
     }
 
     .carousel__button--left {

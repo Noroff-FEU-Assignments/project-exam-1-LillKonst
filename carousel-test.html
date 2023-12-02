@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title id="title">Tiny Stories | POST</title>
-    <meta name="description" content="Tiny Stories blog. Read our blog post." />
+    <title>Tiny Stories | HOME</title>
+    <meta
+      name="description"
+      content="Tiny Stories blog. This is a blog about tiny living."
+    />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/post.css" />
-
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/carouseltest.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,9 +23,8 @@
       src="https://kit.fontawesome.com/9376ed08d8.js"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/test.js" defer></script>
     <script src="/js/menu.js" defer></script>
-    <script src="/js/post.js" defer></script>
-    <script src="/js/script.js" defer></script>
     <!-- Hotjar Tracking Code for Exam project Lill Konst 23  -->
     <script>
       (function (h, o, t, j, a, r) {
@@ -42,7 +44,7 @@
   </head>
   <body>
     <header>
-      <a href="/index.html"
+      <a href="index.html"
         ><img
           src="/images/logo-blue.svg"
           alt="this is the logo, title of blog with blue circled background"
@@ -66,19 +68,45 @@
       </div>
     </header>
     <main>
+      <div class="relative">
+        <img
+          src="/images/nachelle-nocom-51adhgg5KkE-unsplash-cut-slim.jpg"
+          alt="tiny house on wheels"
+          class="main-img mobile"
+        />
 
-      <button class="back-btn"> <img src="/images/left.svg" alt="arrow to the left">BACK TO BLOG</p></button>
-      <article class="blog-post__container" id="post-details"></article>
+        <img
+          src="/images/nachelle-nocom-51adhgg5KkE-unsplash-cut.jpg"
+          alt="tiny house on wheels"
+          class="main-img desktop"
+        />
 
-      <div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <img src="" alt="Modal Image" class="modal-content" />
+        <div class="background-box">
+          <h2>Welcome to our tiny space online</h2>
+          <p class="welcome-text">
+            We belive a life with less stuff is a life with more joy. Let’s talk
+            about how to make living in a small space easier.
+          </p>
+        </div>
       </div>
 
       <div class="box">
-        <h3 class="heading-circle blue-box">MORE STORIES</h3>
-        <div class="stories-box blue-box">
-          <div class="list-of-posts carousel__track"></div>
+        <h3 class="heading-circle ">LATEST POSTS</h3>
+        <div class="slider-box">
+          <button
+            id="left"
+            class="carousel__button carousel__button--left"
+          >
+            <img src="/images/left.svg" alt="arrow to the left" />
+          </button>
+
+          <div class="list-of-posts carousel__track slider"></div>
+          <button
+            id="right"
+            class="carousel__button carousel__button--right"
+          >
+            <img src="/images/right.svg" alt="arrow to the right" />
+          </button>
         </div>
       </div>
     </main>

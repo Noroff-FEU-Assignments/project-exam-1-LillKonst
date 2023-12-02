@@ -6,6 +6,8 @@
     height: fit-content;
     margin-top: 10px; 
     width: fit-content;
+    color:black;
+    text-decoration: none;
   }
 
   .back-btn img {
@@ -23,7 +25,7 @@
     flex-direction: column;
     border: 2px solid rgba(217, 202, 179, 0.5);
     border-radius: 22px 22px 0px 0px;
-    margin-top: 10px;
+    margin: 10px 50px;
 }
 
 .post__title {

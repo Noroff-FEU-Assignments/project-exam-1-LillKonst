@@ -53,14 +53,14 @@ fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/tags?slug=${tagSlug}`)
 
 function displayPosts(posts) {
   try {
-    const carousel = document.querySelector(".carousel__track");
+    const carousel = document.querySelector(".stories-box");
     carousel.innerHTML = "";
 
     for (let i = 0; i < posts.length; i++) {
       const post = posts[i];
 
       const postSlide = document.createElement("article");
-      postSlide.classList.add("carousel__slide");
+      postSlide.classList.add("blog-min");
       postSlide.addEventListener("click", () => {
         window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
       });

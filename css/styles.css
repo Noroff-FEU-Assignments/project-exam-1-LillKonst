@@ -20,7 +20,7 @@ h2, h3, h4, p {
 main {
     display: flex;
     flex-direction: column;
-    padding: 0px 50px; 
+    padding: 0px 20px; 
 }
 
  
@@ -129,7 +129,7 @@ header {
     font-family: "Indie-Flower";
     font-size: 2em;
     z-index: 998;
-    align-self: flex-start;
+    align-self: center;
     padding: 0px 30px;
     margin: 0;
 }
@@ -230,6 +230,10 @@ header {
     font-size: 1.2em;
 }
 
+.read-btn:hover {
+    font-weight: 600;
+}
+
 .blog-min {
     margin: 10px;
     padding: 10px; 
@@ -284,9 +288,7 @@ footer {
 }
 
 @media (max-width: 1116px) {
-    .title-min {
-        height: 60px 
-    }
+
 }
 
 @media (max-width: 1000px) {
@@ -432,7 +434,10 @@ footer {
 
     .stories-box {
         flex-direction: column;
-        padding-top: 40px;
+    }
+
+    .heading-circle {
+        align-self: center;
     }
 
     .carousel__track {
@@ -443,17 +448,18 @@ footer {
     .carousel__slide {
         width: 90%; 
     }
-
-    .title-min {
-        height: fit-content;
-    }
-
     .carousel__button--left {
         transform: rotate(90deg);
     }
 
     .carousel__button--right {
         transform: rotate(90deg);
+    }
+
+    .blog-min {
+        width: 90%;
+        margin: 0; 
+        align-self: center;
     }
 
 }

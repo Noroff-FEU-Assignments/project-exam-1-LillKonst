@@ -6,14 +6,14 @@ main {
 
 .main-img {
     width: 100%;
-    border-radius: 20px;
-    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
 }
 
 .background-box {
     position: absolute;
     background-color: rgba(217, 202, 179, 0.8);
-    bottom: 50px; 
+    bottom: 100px; 
     right: 100px; 
     border-radius: 20px;
     margin-top: 20px;
@@ -36,7 +36,7 @@ h2 {
 .relative {
     position: relative;
     margin-bottom: 0px;
-    padding: 0px 70px;
+    padding: 0px 0px;
 }
 
 

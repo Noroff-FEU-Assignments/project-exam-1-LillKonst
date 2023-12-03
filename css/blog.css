@@ -110,12 +110,8 @@
     
     .blog-min {
         width: 90%;
-        margin: 0; 
+        margin: 10px 0px;  
         align-self: center;
-    }
-
-    .blog-min {
-        margin: 10px 0px; 
     }
 }
 

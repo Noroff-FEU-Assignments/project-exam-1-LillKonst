@@ -45,27 +45,6 @@ h2 {
 
 
 
-
-.box {
-    display: flex;
-    flex-direction: column;
-    margin: 50px 0px;
-}
-
-.carousel__heading {
-    background-color: #D9E7F4;
-    font-family: "Indie-Flower";
-    font-size: 2em;
-    z-index: 998;
-    align-self: center;
-    padding: 0px 30px;
-    margin: 0;
-    align-self: center;
-    border-radius: 50px;
-    margin-bottom: -30px;
-    padding: 10px;
-}
-
 .carousel__container{
     display: flex;
     justify-content: center;
@@ -73,7 +52,7 @@ h2 {
     background-color: #D9E7F4;
     height: 300px;
     width: 100%; 
-    padding-top: 20px;
+    padding-top: 40px;
 }
 
 .carousel__track {
@@ -81,7 +60,6 @@ h2 {
     padding: 0px 0px; 
     width: 85%; 
     display: grid;
-    grid-column: 2;
     grid-auto-flow: column;
     grid-auto-columns: calc((100% / 3) - 10px);
     gap: 15px;
@@ -92,43 +70,7 @@ h2 {
 }
 
 .carousel__track::-webkit-scrollbar {
-    position: absolute;
-    background: #ccc;
-    top: 10;
-    bottom: 10; 
-    left: 0;
-    right: 0;
-    width: 50%; 
-    height: 2px; 
-    cursor: grab; 
-    border-radius: inherit;
-}
-
-
-
-.carousel__slide {
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-    align-self: center; 
-}
-.carousel__title {
-    font-size: 1em;
-    background-color: rgba(250, 250, 250, 0.5);
-    padding: 10px;
-    margin: 0px; 
-    align-self: center;
-    border-radius: 10px 10px 0px 0px;
-}
-
-.carousel__img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    padding: 0px;
-    cursor: pointer;
-    padding: 0; 
-    margin: 0;
+   display: none;
 }
 
 .carousel__button {
@@ -140,6 +82,10 @@ h2 {
     position: absolute;
     top: 60%;
     width: fit-content;
+}
+
+.carousel__button img {
+    width: 30px;
 }
 
 .carousel__button--left {
@@ -180,13 +126,6 @@ h2 {
     }
 }
 
-
-@media screen and (min-width: 900px) and (max-width: 950px) {
-    .carousel__title {
-        height: 40px; 
-    }
-}
-
 @media (max-width: 900px) {
     .relative {
         position: static;
@@ -214,12 +153,6 @@ h2 {
         margin: 10px 50px;
     }
 
-    .carousel__title {
-        padding: 10px;
-    }
-
-    .carousel__img {}
-
     .carousel__button--left {
         left: 10px; 
     }
@@ -235,5 +168,9 @@ h2 {
 @media (max-width: 600px) {
     .relative {
         padding: 0px 10px;
+    }
+
+    .carousel__container {
+        height: 420px; 
     }
 }

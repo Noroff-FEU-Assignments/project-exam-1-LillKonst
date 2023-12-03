@@ -65,6 +65,8 @@
     border-radius: 10px 10px 0px 0px;
 }
 
+
+
 .blog__img-min {
     width: 100%; 
     height: 250px;
@@ -103,6 +105,13 @@
 @media (max-width: 900px) {
     .blog-head:after {
         display: none;
+    }
+
+    
+    .blog-min {
+        width: 90%;
+        margin: 0; 
+        align-self: center;
     }
 }
 

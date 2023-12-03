@@ -65,6 +65,11 @@ fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/tags?slug=${tagSlug}`)
           window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
         });
         carousel.appendChild(postSlide);
+
+        const readBtn = document.createElement("button");
+        readBtn.textContent = "READ POST";
+        readBtn.classList.add("read-btn");
+        postSlide.appendChild(readBtn); 
   
         const postTitle = document.createElement("h2");
         postTitle.classList.add("carousel__title");
@@ -76,11 +81,11 @@ fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/tags?slug=${tagSlug}`)
         image.classList.add("carousel__img");
         postSlide.appendChild(image);
   
-        // Fetch and set alt text for the image
+
         (async () => {
           try {
             const altText = await getAltTextForFeaturedImage(post.featured_media);
-            image.alt = altText || "No alt text available"; // Set default alt text if none found
+            image.alt = altText || "No alt text available";
             image.src = post.jetpack_featured_media_url || "placeholder.jpg"; // Use the featured media URL or placeholder
           } catch (error) {
             console.error("Error fetching alt text:", error);
@@ -94,69 +99,32 @@ fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/tags?slug=${tagSlug}`)
     }
   }
   
-  document.addEventListener("DOMContentLoaded", () => {
-    // Fetching posts happens asynchronously, so no need to call displayPosts here; it's already called after fetching data
+  const emailForm = document.querySelector(".subscribe-form");
+  const confirmationMessage = document.querySelector(".confirmation-message");
+  const emailError = document.querySelector(".error-message");
+  
+  emailForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent form submission (for demo purposes)
+  
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value;
+    const emailPattern = /^\S+@\S+\.\S+$/;
+  
+    let hasError = false;
+  
+    if (!emailPattern.test(email)) {
+      emailError.textContent = "Please enter a valid email address.";
+      emailError.style.display = "block";
+      hasError = true;
+    } else {
+      confirmationMessage.textContent = "Super! We'll send you a welcome mail.";
+      confirmationMessage.style.display = "block";
+      emailError.style.display = "none";
+      hasError = false;
+    }
   });
   
-
-
-
-
-/*const tagSlug = "myStory";
-const numberOfPosts = 3;
-
-const apiURL = `https://rainydays-api.lillkonst.no/wp-json/wp/v2/posts?_embed&tags=${tagSlug}&per_page=${numberOfPosts}`;
-
-fetch(apiURL)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error('Something went wrong');
-    }
-    return response.json();
-  })
-  .then((data) => {
-    // Handle the fetched data (data contains the last three posts with the specific tag)
-    console.log(data);
-    // Process and display the data
-  })
-  .catch((error) => {
-    console.error('There was a problem with the fetch operation:', error);
+  document.addEventListener("DOMContentLoaded", () => {
+    // Your initialization code goes here
   });
-
-
-  async function displayPosts(numberOfPosts) {
-    try {
-        const posts = await getPosts(numberOfPosts);
-        const carousel = document.querySelector(".carousel__track");
-        carousel.innerHTML = "";
-    
-    for(i = 0; i < posts.length; i++) {
-        const post = posts[i];
-
-        const postSlide = document.createElement("article");
-            postSlide.classList.add("carousel__slide");
-            postSlide.addEventListener("click", () => {
-            window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
-            });
-            carousel.appendChild(postSlide);
-
-            const postTitle = document.createElement("h2");
-            postTitle.classList.add("carousel__title");
-            postTitle.innerHTML = `${post.title.rendered}`;
-            postSlide.appendChild(postTitle);
-
-            const image = document.createElement("img");
-            image.src = post.jetpack_featured_media_url;
-            image.alt = post.description;
-            image.classList.add("carousel__img");
-            postSlide.appendChild(image);
-
-        }
-    } catch (error) {
-        showError(error.message);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    displayPosts(numberOfPosts);
-});*/
+  

@@ -4,7 +4,7 @@ function showLoadingIndicator() {
     const PostList = document.querySelector(".list-of-posts");
     const loadingParagraph = document.createElement("p");
     loadingParagraph.textContent = "Loading...";
-    loadingParagraph.classList.add("loading"); // Add your desired class name here
+    loadingParagraph.classList.add("loading");
     PostList.appendChild(loadingParagraph);
 }
 
@@ -61,6 +61,11 @@ async function displayCarousel() {
             });
             carousel.appendChild(postSlide);
 
+            const readBtn = document.createElement("button");
+            readBtn.textContent = "READ POST";
+            readBtn.classList.add("read-btn");
+            postSlide.appendChild(readBtn); 
+
             const postTitle = document.createElement("h2");
             postTitle.classList.add("carousel__title");
             postTitle.innerHTML = `${post.title.rendered}`;
@@ -71,79 +76,42 @@ async function displayCarousel() {
             image.classList.add("carousel__img");
             postSlide.appendChild(image);
 
-              // Fetch and set alt text for the image
-              const altText = await getAltTextForFeaturedImage(post.featured_media);
-              image.alt = altText || "No alt text available"; // Set default alt text if none found
+              
+            const altText = await getAltTextForFeaturedImage(post.featured_media);
+            image.alt = altText || "No alt text available";
   
-              // Set image source
-              if (post.jetpack_featured_media_url) {
-                  image.src = post.jetpack_featured_media_url;
-              } else {
-                  image.src = "placeholder.jpg"; // Replace with your placeholder image
-              }
+    
+            if (post.jetpack_featured_media_url) {
+                image.src = post.jetpack_featured_media_url;
+            } else {
+                image.src = "placeholder.jpg"; // Replace with your placeholder image
+            }
 
         }
     } catch (error) {
         showError(error.message);
     }
 }
-
-// Initial display of carousel on page load
 document.addEventListener("DOMContentLoaded", () => {
     displayCarousel();
 });
-
-/*
-const carousel = document.querySelector(".carousel__track");
-const leftBtn = document.getElementById("left");
-const rightBtn = document.getElementById("right");
-const firstSlide = carousel.querySelector
-
-let isDragging = false; 
-
-leftBtn.addEventListener("click", () => {
-        carousel.scrollLeft = btn.id === "left" ?
-    })
-
-rightBtn.addEventListener("click", () => {
-        carousel.scrollRight = btn.id === "right" ?
-    });
-
-const dragStart = () => {
-    isDragging = true;
-    carousel.classList.add("dragging");
-}
-
-const dragging = (e) => {
-    carousel.scrollLeft = e.pageX;
-}
-carousel.addEventListener("mousedown", dragStart);
-carousel.addEventListener("mousemove", dragging);
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    displayCarousel(currentPage);
-    
-});*/
 
 const carousel = document.querySelector(".carousel__track");
 const leftBtn = document.getElementById("left");
 const rightBtn = document.getElementById("right");
 
 function getPostWidth() {
-    const post = carousel.querySelector(".carousel__slide"); // Assuming each post has this class
+    const post = carousel.querySelector(".carousel__slide");
     const postRect = post.getBoundingClientRect();
     return postRect.width;
 }
 
 leftBtn.addEventListener("click", () => {
-    carousel.scrollLeft -= getPostWidth();// Adjust the scrollLeft value as needed
+    carousel.scrollLeft -= getPostWidth();
 });
 
 rightBtn.addEventListener("click", () => {
-    carousel.scrollLeft += getPostWidth(); // Adjust the scrollLeft value as needed
+    carousel.scrollLeft += getPostWidth();
 });
 
 let isDragging = false;

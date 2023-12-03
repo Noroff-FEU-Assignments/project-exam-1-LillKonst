@@ -58,7 +58,7 @@ async function displayListOfPosts(posts) {
             listOfPosts.appendChild(postMiniature);
     
             const readBtn = document.createElement("button");
-            readBtn.textContent = "READ";
+            readBtn.textContent = "READ POST";
             readBtn.classList.add("read-btn");
             postMiniature.appendChild(readBtn); 
             

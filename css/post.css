@@ -1,10 +1,13 @@
 .back-btn {
     width: 200px;
+    font-family: "Livvic";
     border: none;
     background-color: #FCF7F8;
     font-size: 1em;
+    font-weight: 600;
     height: fit-content;
     margin-top: 10px; 
+    padding: 0px 50px;
     width: fit-content;
     color:black;
     text-decoration: none;
@@ -23,7 +26,7 @@
 .blog-post__container {
     display: flex;
     flex-direction: column;
-    border: 2px solid rgba(217, 202, 179, 0.5);
+    border: 2px solid #D9E7F4;
     border-radius: 22px 22px 0px 0px;
     margin: 10px 50px;
 }
@@ -34,7 +37,7 @@
     font-size: 2em; 
     padding: 20px 40px;
     margin: 0px;
-    background-color: #D9CAB3;
+    background-color: #D9E7F4;
     border-radius: 20px 20px 0px 0px; 
 }
 

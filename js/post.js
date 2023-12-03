@@ -57,7 +57,7 @@ async function displayRelatedPosts(postTags) {
         if (relatedPost.jetpack_featured_media_url) {
           image.src = relatedPost.jetpack_featured_media_url;
         } else {
-          image.src = "placeholder.jpg"; // Replace with your placeholder image
+          image.src = "/images/placeholder.jpg";
         }
 
         postSlide.addEventListener("click", () => {

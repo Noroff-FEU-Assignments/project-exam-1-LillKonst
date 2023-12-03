@@ -1,17 +1,33 @@
-.slider-box{
-    display: grid;
-    grid-template-columns: auto 1fr auto; 
-    grid-template-rows: auto;
+.box {
+    background-color: #D9E7F4;
 }
-.carousel__track { 
+
+.heading-circle {
+    background-color: #D9E7F4;
+}
+
+.slider-box{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.carousel__track {
+    align-self: center; 
+    width: 90%; 
     display: grid;
-    grid-column: 1;
+    grid-column: 2;
     grid-auto-flow: column;
-    grid-auto-columns: calc((90% / 3) - 12px);
+    grid-auto-columns: calc((100% / 3) - 12px);
     gap: 16px;
-    overflow-x: hidden;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    scrollbar-width: 0; 
     white-space: nowrap;
+}
+
+.carousel__track::-webkit-scrollbar {
+    display: none;
 }
 
 .carousel__slide {
@@ -27,14 +43,18 @@
 }
 
 .carousel__button--left {
-    grid-column: 1;
     width: fit-content;
+    position: absolute;
+    top: 60%; 
+    left: 2%; 
 }
 
 .carousel__button--right {
-    grid-column: 3;
+    position: absolute;
+    top: 60%; 
+    right: 2%; 
     align-self: center;
-    justify-content: flex-end;
+   
     z-index: 999;
     width: fit-content;
 }

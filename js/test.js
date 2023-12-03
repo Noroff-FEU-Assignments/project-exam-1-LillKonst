@@ -1,7 +1,5 @@
 const tinyStoriesAPI = "https://rainydays-api.lillkonst.no/wp-json/wp/v2/posts";
 
-
-
 function showLoadingIndicator() {
     const PostList = document.querySelector(".list-of-posts");
     PostList.innerHTML = "<p>Loading...</p>";
@@ -12,14 +10,7 @@ function showError(message) {
     errorContainer.innerHTML = `<p> Error: ${message}</p>`;
 }
 
-const arrowBtns = document.querySelectorAll(".slider-box i")
-
-arrowBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        console.log(btn.id);
-    })
-})
-async function getPosts(page, postsPerPage) {
+async function getPosts() {
     showLoadingIndicator();
     try {
         const response = await fetch(`${tinyStoriesAPI}`);
@@ -99,7 +90,75 @@ document.addEventListener("DOMContentLoaded", () => {
     displayCarousel();
 });
 
+/*
+const carousel = document.querySelector(".carousel__track");
+const leftBtn = document.getElementById("left");
+const rightBtn = document.getElementById("right");
+const firstSlide = carousel.querySelector
+
+let isDragging = false; 
+
+leftBtn.addEventListener("click", () => {
+        carousel.scrollLeft = btn.id === "left" ?
+    })
+
+rightBtn.addEventListener("click", () => {
+        carousel.scrollRight = btn.id === "right" ?
+    });
+
+const dragStart = () => {
+    isDragging = true;
+    carousel.classList.add("dragging");
+}
+
+const dragging = (e) => {
+    carousel.scrollLeft = e.pageX;
+}
+carousel.addEventListener("mousedown", dragStart);
+carousel.addEventListener("mousemove", dragging);
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     displayCarousel(currentPage);
-    updateButtonVisibility(); // Update button visibility initially
+    
+});*/
+
+const carousel = document.querySelector(".carousel__track");
+const leftBtn = document.getElementById("left");
+const rightBtn = document.getElementById("right");
+
+leftBtn.addEventListener("click", () => {
+    carousel.scrollLeft -= 1000; // Adjust the scrollLeft value as needed
+});
+
+rightBtn.addEventListener("click", () => {
+    carousel.scrollLeft += 1000; // Adjust the scrollLeft value as needed
+});
+
+let isDragging = false;
+let startPosition = 0;
+let scrollLeft = 0;
+
+carousel.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startPosition = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener("mouseup", () => {
+    isDragging = false;
+});
+
+carousel.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const currentPosition = e.pageX - carousel.offsetLeft;
+    const distance = currentPosition - startPosition;
+    carousel.scrollLeft = scrollLeft - distance;
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    displayCarousel(currentPage);
 });

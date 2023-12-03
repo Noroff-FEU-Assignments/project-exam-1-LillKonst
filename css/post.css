@@ -3,7 +3,7 @@
     font-family: "Livvic";
     border: none;
     background-color: #FCF7F8;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 600;
     height: fit-content;
     margin-top: 10px; 
@@ -17,6 +17,7 @@
     width: 5px;
     height: auto;
     padding: 0px 5px;
+    margin: 1px 0px;
   }
 
   .back-btn:hover {
@@ -131,6 +132,10 @@
 
 @media (max-width: 900px){
 
+    .back-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
     .post__content {
         margin-top: -40px; 
         padding-top: 40px;

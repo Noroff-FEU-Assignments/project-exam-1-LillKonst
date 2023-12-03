@@ -79,7 +79,7 @@ async function displayListOfPosts(posts) {
              if (post.jetpack_featured_media_url) {
                  image.src = post.jetpack_featured_media_url;
              } else {
-                 image.src = "placeholder.jpg"; // Replace with your placeholder image
+                 image.src = "/images/placeholder.jpg";
              }
 
             

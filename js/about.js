@@ -86,11 +86,11 @@ fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/tags?slug=${tagSlug}`)
           try {
             const altText = await getAltTextForFeaturedImage(post.featured_media);
             image.alt = altText || "No alt text available";
-            image.src = post.jetpack_featured_media_url || "placeholder.jpg"; // Use the featured media URL or placeholder
+            image.src = post.jetpack_featured_media_url || "/images/placeholder.jpg";
           } catch (error) {
             console.error("Error fetching alt text:", error);
             image.alt = "No alt text available";
-            image.src = "placeholder.jpg"; // Replace with your placeholder image
+            image.src = "/images/placeholder.jpg";
           }
         })();
       }
@@ -104,7 +104,7 @@ fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/tags?slug=${tagSlug}`)
   const emailError = document.querySelector(".error-message");
   
   emailForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent form submission (for demo purposes)
+    event.preventDefault();
   
     const emailInput = document.getElementById("email");
     const email = emailInput.value;
@@ -125,6 +125,6 @@ fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/tags?slug=${tagSlug}`)
   });
   
   document.addEventListener("DOMContentLoaded", () => {
-    // Your initialization code goes here
+    
   });
   

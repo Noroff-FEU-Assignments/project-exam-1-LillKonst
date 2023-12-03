@@ -318,47 +318,6 @@ footer {
         font-size: 1.5em;
         
       }
-
-      /*
-      
-      #hamburger-menu:checked ~ .menu {
-        display: flex;
-        flex-direction: column;
-        z-index: 999;
-        position: absolute;
-        top: 110px;
-        right: 0px; 
-        width: 60%;
-        height: 600px;
-        background-color: #BFD1E5;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        transition: ease-in-out 0.3s;
-      }
-
-      .menu a {
-        padding: 50px;
-        font-weight: 500;
-        font-size: 1.5em;
-      }
-    
-    
-      .menu::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0%;
-        height: 1px;
-        transition: 0.15s ease-in-out;
-      }
-      
-      .open-menu,
-      .close-menu {
-        position: absolute;
-        display: none;
-      }
-
-      */
     
     .mobile {
         display: flex;

@@ -127,6 +127,8 @@ h2 {
     object-fit: cover;
     padding: 0px;
     cursor: pointer;
+    padding: 0; 
+    margin: 0;
 }
 
 .carousel__button {
@@ -146,6 +148,8 @@ h2 {
 
 .carousel__button--right {
     right: 2%; 
+    top: 47%;
+    transform: rotate(180deg)    
 }
 
 
@@ -177,6 +181,12 @@ h2 {
 }
 
 
+@media screen and (min-width: 900px) and (max-width: 950px) {
+    .carousel__title {
+        height: 40px; 
+    }
+}
+
 @media (max-width: 900px) {
     .relative {
         position: static;
@@ -197,6 +207,28 @@ h2 {
         margin: 0px;
         width: 100%;
     }
+
+    .carousel__track {
+        grid-auto-columns: calc((100%) - 10px);
+        margin-top: 10px;
+        margin: 10px 50px;
+    }
+
+    .carousel__title {
+        padding: 10px;
+    }
+
+    .carousel__img {}
+
+    .carousel__button--left {
+        left: 10px; 
+    }
+    
+    .carousel__button--right {
+        right: 10px; 
+
+    }
+    
 
 }
 

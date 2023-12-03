@@ -467,7 +467,7 @@ footer {
     }
 
     .carousel__track {
-        flex-direction: column;
+        grid-auto-columns: 1;
         margin-top: 10px;
     }
 

@@ -2,7 +2,10 @@ const tinyStoriesAPI = "https://rainydays-api.lillkonst.no/wp-json/wp/v2/posts";
 
 function showLoadingIndicator() {
     const PostList = document.querySelector(".list-of-posts");
-    PostList.innerHTML = "<p>Loading...</p>";
+    const loadingParagraph = document.createElement("p");
+    loadingParagraph.textContent = "Loading...";
+    loadingParagraph.classList.add("loading"); // Add your desired class name here
+    PostList.appendChild(loadingParagraph);
 }
 
 function showError(message) {
@@ -129,12 +132,18 @@ const carousel = document.querySelector(".carousel__track");
 const leftBtn = document.getElementById("left");
 const rightBtn = document.getElementById("right");
 
+function getPostWidth() {
+    const post = carousel.querySelector(".carousel__slide"); // Assuming each post has this class
+    const postRect = post.getBoundingClientRect();
+    return postRect.width;
+}
+
 leftBtn.addEventListener("click", () => {
-    carousel.scrollLeft -= 1000; // Adjust the scrollLeft value as needed
+    carousel.scrollLeft -= getPostWidth();// Adjust the scrollLeft value as needed
 });
 
 rightBtn.addEventListener("click", () => {
-    carousel.scrollLeft += 1000; // Adjust the scrollLeft value as needed
+    carousel.scrollLeft += getPostWidth(); // Adjust the scrollLeft value as needed
 });
 
 let isDragging = false;

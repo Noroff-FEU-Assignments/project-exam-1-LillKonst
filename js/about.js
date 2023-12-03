@@ -35,66 +35,69 @@ fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/tags?slug=${tagSlug}`)
     showError(error.message);
   });
 
-  async function getAltTextForFeaturedImage(imageId) {
+  function displayPosts(posts) {
     try {
-        const response = await fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/media/${imageId}`);
-
-        if (!response.ok) {
+      const carousel = document.querySelector(".mystory-container");
+      carousel.innerHTML = "";
+  
+      async function getAltTextForFeaturedImage(imageId) {
+        try {
+          const response = await fetch(`https://rainydays-api.lillkonst.no/wp-json/wp/v2/media/${imageId}`);
+  
+          if (!response.ok) {
             throw new Error("Failed to fetch image details");
+          }
+  
+          const imageData = await response.json();
+          return imageData.alt_text;
+        } catch (error) {
+          console.error("Error fetching image details:", error);
+          return null;
         }
-
-        const imageData = await response.json();
-        return imageData.alt_text;
-    } catch (error) {
-        console.error("Error fetching image details:", error);
-        return null;
-    }
-}
-
-function displayPosts(posts) {
-  try {
-    const carousel = document.querySelector(".stories-box");
-    carousel.innerHTML = "";
-
-    for (let i = 0; i < posts.length; i++) {
-      const post = posts[i];
-
-      const postSlide = document.createElement("article");
-      postSlide.classList.add("blog-min");
-      postSlide.addEventListener("click", () => {
-        window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
-      });
-      carousel.appendChild(postSlide);
-
-      const postTitle = document.createElement("h2");
-      postTitle.classList.add("carousel__title");
-      postTitle.innerHTML = `${post.title.rendered}`;
-      postSlide.appendChild(postTitle);
-
-      const image = document.createElement("img");
-      image.src = post.jetpack_featured_media_url;
-      image.classList.add("carousel__img");
-      postSlide.appendChild(image);
-
-      // Fetch and set alt text for the image
-      const altText = await getAltTextForFeaturedImage(post.featured_media);
-      image.alt = altText || "No alt text available"; // Set default alt text if none found
-
-      // Set image source
-      if (post.jetpack_featured_media_url) {
-          image.src = post.jetpack_featured_media_url;
-      } else {
-          image.src = "placeholder.jpg"; // Replace with your placeholder image
       }
+  
+      for (let i = 0; i < posts.length; i++) {
+        const post = posts[i];
+  
+        const postSlide = document.createElement("article");
+        postSlide.classList.add("carousel__slide");
+        postSlide.addEventListener("click", () => {
+          window.location.href = `posts/post.html?id=${post.id}&title=${post.title.rendered}`;
+        });
+        carousel.appendChild(postSlide);
+  
+        const postTitle = document.createElement("h2");
+        postTitle.classList.add("carousel__title");
+        postTitle.innerHTML = `${post.title.rendered}`;
+        postSlide.appendChild(postTitle);
+  
+        const image = document.createElement("img");
+        image.src = post.jetpack_featured_media_url;
+        image.classList.add("carousel__img");
+        postSlide.appendChild(image);
+  
+        // Fetch and set alt text for the image
+        (async () => {
+          try {
+            const altText = await getAltTextForFeaturedImage(post.featured_media);
+            image.alt = altText || "No alt text available"; // Set default alt text if none found
+            image.src = post.jetpack_featured_media_url || "placeholder.jpg"; // Use the featured media URL or placeholder
+          } catch (error) {
+            console.error("Error fetching alt text:", error);
+            image.alt = "No alt text available";
+            image.src = "placeholder.jpg"; // Replace with your placeholder image
+          }
+        })();
+      }
+    } catch (error) {
+      console.error(error.message);
     }
-  } catch (error) {
-    console.error(error.message);
   }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Fetching posts happens asynchronously, so no need to call displayPosts here; it's already called after fetching data
-});
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    // Fetching posts happens asynchronously, so no need to call displayPosts here; it's already called after fetching data
+  });
+  
 
 
 

@@ -9,6 +9,7 @@
       name="description"
       content="Tiny Stories blog. About the Tiny Stories blog."
     />
+    <link rel="stylesheet" href="/css/contact.css" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/about.css" />
     <link
@@ -101,10 +102,29 @@
         />
       </div>
       <div class="box">
-        <h3 class="heading-circle blue-box">MY STORIES</h3>
-        <div class="stories-box blue-box">
-          <div class="carousel__track"></div>
+        <h3 class="carousel__heading">MY STORIES</h3>
+        <div class="mystory-container"></div>
+      </div>
+
+      <div class="subscribe-box">
+        <div class="subscribe-text">
+          <h4>SUBSCRIBE</h4>
+          <p>Be the first one to know when I post</p>
+          <form class="subscribe-form">
+            <fieldset>
+              <legend></legend>
+                <label for="email">Email address:</label>
+              <input type="email" name="email" id="email" class="form__input" />
+              <div id="emailError" class="error-message"></div>
+            </fieldset>
+            <button id="submit" class="btn">SUBMIT</button>
+          </form>
         </div>
+        <img
+          class="subscribe-img"
+          src="/images/girl-6615570_1280.jpg"
+          alt="girl walking through a field holding flowers"
+        />
       </div>
     </main>
     <footer>

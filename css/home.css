@@ -92,8 +92,19 @@ h2 {
 }
 
 .carousel__track::-webkit-scrollbar {
-    display: none;
+    position: absolute;
+    background: #ccc;
+    top: 10;
+    bottom: 10; 
+    left: 0;
+    right: 0;
+    width: 50%; 
+    height: 2px; 
+    cursor: grab; 
+    border-radius: inherit;
 }
+
+
 
 .carousel__slide {
     width: 100%;
@@ -141,6 +152,14 @@ h2 {
 @media (min-width: 1400px) {
     .background-box {
         right: 150px;
+    }
+
+    .carousel__container {
+        height: 500px; 
+    }
+
+    .carousel__img {
+        height: 350px;
     }
 }
 

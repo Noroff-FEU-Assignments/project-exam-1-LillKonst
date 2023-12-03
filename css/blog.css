@@ -113,6 +113,10 @@
         margin: 0; 
         align-self: center;
     }
+
+    .post-miniature {
+        margin: 10px 0px; 
+    }
 }
 
 @media (max-width: 800px) {
